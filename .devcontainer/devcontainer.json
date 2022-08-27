@@ -1,0 +1,43 @@
+{
+  "name": "Deno",
+  "dockerFile": "Dockerfile",
+  "settings": {
+    "deno.enable": true,
+    "deno.unstable": true,
+    "deno.codeLens.test": true,
+    "deno.codeLens.testArgs": [
+      "--allow-all",
+      "--no-check"
+    ],
+    "deno.lint": true,
+    "[typescript][typescriptreact][javascript][javascriptreact][json][jsonc]": {
+      "editor.defaultFormatter": "denoland.vscode-deno",
+      "editor.formatOnSave": true,
+      "editor.formatOnSaveMode": "modificationsIfAvailable",
+      "editor.formatOnPaste": false,
+      "editor.formatOnType": false,
+      "editor.autoClosingDelete": "always",
+      "editor.autoClosingOvertype": "always",
+      "editor.autoClosingQuotes": "languageDefined",
+      "editor.tabSize": 2,
+      "editor.stickyTabStops": true,
+      "editor.linkedEditing": true
+    },
+    "[json][jsonc][markdown][yaml]": {
+      "editor.formatOnType": true
+    }
+  },
+  // This will install the vscode-deno extension
+  "extensions": [
+    "denoland.vscode-deno",
+    "editorconfig.editorconfig",
+    "vsls-contrib.gistfs",
+    "sdras.night-owl",
+    "redhat.vscode-yaml",
+    "antfu.iconify",
+    "antfu.unocss",
+    "antfu.browse-lite",
+    "bierner.markdown-preview-github-styles"
+  ],
+  "remoteUser": "vscode"
+}
