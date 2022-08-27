@@ -1,0 +1,23 @@
+{
+  "$schema": "https://x.nest.land/eggs@0.3.10/src/schema.json",
+  "name": "this",
+  "entry": "./mod.ts",
+  "description": "Extends the Deno global scope by injecting functions and variables into globalThis.",
+  "homepage": "https://github.com/deno911/this",
+  "repository": "https://github.com/deno911/this",
+  "unstable": false,
+  "unlisted": false,
+  "version": "0.153.0",
+  "releaseType": "minor",
+  "bump": "minor",
+  "files": [
+    "./encoding/*",
+    "./testing/*",
+    "./{deps,encoding,testing,mod}.ts",
+    "./{deno.jsonc,LICENSE,README.md}"
+  ],
+  "checkFormat": "deno fmt",
+  "checkTests": "deno test --unstable --no-check -A",
+  "checkInstallation": true,
+  "check": true
+}
