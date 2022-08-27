@@ -1,4 +1,4 @@
-import * as snapshot from "https://deno.land/std@0.144.0/testing/snapshot.ts";
+import { snapshot } from "../deps.ts";
 
 Object.assign(globalThis, snapshot);
 

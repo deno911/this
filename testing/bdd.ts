@@ -1,4 +1,4 @@
-import * as bdd from "https://deno.land/std@0.144.0/testing/bdd.ts";
+import { bdd } from "../deps.ts";
 
 Object.assign(globalThis, bdd);
 

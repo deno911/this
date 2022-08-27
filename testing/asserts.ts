@@ -1,4 +1,4 @@
-import * as asserts from "https://deno.land/std@0.144.0/testing/asserts.ts";
+import { asserts } from "../deps.ts";
 
 Object.assign(globalThis, asserts);
 
