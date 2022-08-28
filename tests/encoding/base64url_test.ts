@@ -5,8 +5,8 @@
 /// <reference lib="dom" />
 /// <reference lib="dom.iterable" />
 
-import "../testing.ts";
-import "./base64url.ts";
+import "../../testing.ts";
+import "../../encoding/base64url.ts";
 
 Deno.test("base64url", async (test) => {
   const decoded = "base64url_test_string";
