@@ -1,3 +1,7 @@
+/// <reference no-default-lib="true" />
+/// <reference lib="esnext" />
+/// <reference lib="deno.window" />
+
 import "./testing.ts";
 
 Deno.test("URL Test", () => {
@@ -7,14 +11,18 @@ Deno.test("URL Test", () => {
 
 describe("Users Map", () => {
   const users = new Map();
-  it("is initially empty", () => {
-    assertEquals(users.size, 0);
-  });
+  it("is initially empty", () => assertEquals(users.size, 0));
   it("is writeable", () => {
     users.set("key", "value");
     assertEquals(users.size, 1);
-  })
-  it("is readable", () => {
-    assertArrayIncludes([...users.values()], ["value"]);
-  })
+  });
+  it("is readable", () => assertArrayIncludes([...users.values()], ["value"]));
+});
+
+describe("chai", () => {
+  it("exists in global scope", () => assertExists(chai));
+});
+
+describe("fc (fast-check)", () => {
+  it("exists in global scope", () => assertExists(fc));
 });

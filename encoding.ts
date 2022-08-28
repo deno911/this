@@ -1,9 +1,11 @@
-import "./encoding/json.ts";
-import "./encoding/csv.ts";
-import "./encoding/toml.ts";
-import "./encoding/yaml.ts";
-import "./encoding/front_matter.ts";
 import "./encoding/base64.ts";
 import "./encoding/base64url.ts";
 import "./encoding/binary.ts";
+import "./encoding/csv.ts";
+import "./encoding/front_matter.ts";
 import "./encoding/hex.ts";
+import "./encoding/jsonc.ts";
+import "./encoding/json5.ts";
+import "./encoding/jsonstream.ts";
+import "./encoding/toml.ts";
+import "./encoding/yaml.ts";
