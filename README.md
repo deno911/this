@@ -26,7 +26,7 @@ Also creates globals for this third-party library:
 
 - **`JSON5`** - [x/json5](https://deno.land/x/json5)
 
----  
+---
 
 ## testing.ts
 
@@ -83,20 +83,21 @@ describe("Users Map", () => {
   it("is writeable", () => {
     users.set("key", "value");
     assertEquals(users.size, 1);
-  })
+  });
   it("is readable", () => {
     assertArrayIncludes([...users.values()], ["value"]);
-  })
+  });
 });
-
 ```
 
 ---
 
 <div align="center">
 
-The foundation of this module was inspired by [ije/global](https://github.com/ije/global).
+The foundation of this module was inspired by
+[ije/global](https://github.com/ije/global).
 
-MIT © [Nicholas Berlette](https://github.com/nberlette) and [ije](https://github.com/ije)
+MIT © [Nicholas Berlette](https://github.com/nberlette) and
+[ije](https://github.com/ije)
 
 </div>

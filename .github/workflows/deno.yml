@@ -27,37 +27,37 @@ jobs:
             os: ubuntu-20.04
             canary: true
     steps:
-      - name: "(env) gitconfig"
+      - name: "⚙️ gitconfig"
         run: |
           sudo git config --system core.autocrlf false
           sudo git config --system core.eol lf
 
-      - name: "(cache) setup"
+      - name: "⚙️ setup"
         uses: actions/cache@v2
         with:
           path: ${{env.DENO_DIR}}
           key: ${{env.CACHE_VERSION}}-${{hashFiles('./deps.ts')}}
 
-      - name: "(env) checkout"
+      - name: "🧾 checkout"
         uses: actions/checkout@v3
 
-      - name: "(setup) 🦕 ${{matrix.deno}}"
+      - name: "🦕 setup deno ${{matrix.deno}}"
         uses: denoland/setup-deno@main
         # uses: denoland/setup-deno@004814556e37c54a2f6e31384c9e18e983317366
         with:
           deno-version: ${{matrix.deno}}
 
-      - name: "(cache) reload"
+      - name: "🦕 deno cache --reload"
         run: deno cache --reload --lock=lock.json --lock-write deps.ts
 
-      - name: "(run) fmt"
+      - name: "🏃‍♂️ sdeno fmt"
         run: deno fmt --unstable
 
-      - name: "(run) lint"
+      - name: "🏃‍♂️ deno lint"
         run: deno lint --unstable
 
-      - name: "test: unstable"
-        run: deno test -A --unstable --no-check
-
-      - name: "test: stable"
+      - name: "🧪 deno test"
         run: deno test -A --no-check
+
+      - name: "🧪 deno test --unstable"
+        run: deno test -A --unstable --no-check

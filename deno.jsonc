@@ -18,7 +18,8 @@
       "exclude": [
         "no-explicit-any",
         "ban-types",
-        "ban-ts-comment"
+        "ban-ts-comment",
+        "no-var"
       ]
     },
     "files": {
