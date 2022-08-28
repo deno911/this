@@ -5,8 +5,8 @@
 /// <reference lib="dom" />
 /// <reference lib="dom.iterable" />
 
-import "../testing.ts";
-import "./toml.ts";
+import "../../testing.ts";
+import "../../encoding/toml.ts";
 
 Deno.test("TOML", async (test) => {
   await test.step("namespace exists in global scope", () => {
@@ -22,5 +22,4 @@ Deno.test("TOML", async (test) => {
     assertExists(TOML.stringify);
     assertEquals(typeof TOML.stringify, "function");
   });
-
 });

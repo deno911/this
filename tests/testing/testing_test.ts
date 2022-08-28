@@ -2,7 +2,7 @@
 /// <reference lib="esnext" />
 /// <reference lib="deno.window" />
 
-import "./testing.ts";
+import "../../testing.ts";
 
 Deno.test("URL Test", () => {
   const url = new URL("./this@0.0.1/mod.ts", "https://deno.land/x/");
@@ -17,10 +17,6 @@ describe("Users Map", () => {
     assertEquals(users.size, 1);
   });
   it("is readable", () => assertArrayIncludes([...users.values()], ["value"]));
-});
-
-describe("chai", () => {
-  it("exists in global scope", () => assertExists(chai));
 });
 
 describe("fc (fast-check)", () => {

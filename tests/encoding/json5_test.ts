@@ -5,8 +5,8 @@
 /// <reference lib="dom" />
 /// <reference lib="dom.iterable" />
 
-import "../testing.ts";
-import "./json5.ts";
+import "../../testing.ts";
+import "../../encoding/json5.ts";
 
 Deno.test("JSON5", async (test) => {
   await test.step("namespace exists in global scope", () => {

@@ -5,8 +5,8 @@
 /// <reference lib="dom" />
 /// <reference lib="dom.iterable" />
 
-import "../testing.ts";
-import "./jsonc.ts";
+import "../../testing.ts";
+import "../../encoding/jsonc.ts";
 
 Deno.test("JSONC", async (test) => {
   await test.step("namespace exists in global scope", () => {
@@ -22,5 +22,4 @@ Deno.test("JSONC", async (test) => {
     assertExists(JSONC.stringify);
     assertEquals(typeof JSONC.stringify, "function");
   });
-
 });

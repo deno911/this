@@ -16,6 +16,9 @@
     "./{deps,encoding,testing,mod}.ts",
     "./{deno.jsonc,LICENSE,README.md}"
   ],
+  "ignore": [
+    "tests/**/*"
+  ],
   "checkFormat": "deno fmt",
   "checkTests": "deno test --unstable --no-check -A",
   "checkInstallation": true,

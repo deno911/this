@@ -5,33 +5,32 @@
 /// <reference lib="dom" />
 /// <reference lib="dom.iterable" />
 
-import "../testing.ts";
-import "./hex.ts";
+import "../../testing.ts";
+import "../../encoding/base64.ts";
 
-Deno.test("hex", async (test) => {
-  // new TextEncoder().encode("test");
-  const decoded = new Uint8Array([116, 101, 115, 116]);
-  const encoded = new Uint8Array([55, 52, 54, 53, 55, 51, 55, 52]);
+Deno.test("base64", async (test) => {
+  const decoded = "base64_test_string";
+  const encoded = "YmFzZTY0X3Rlc3Rfc3RyaW5n";
 
   await test.step("namespace exists in global scope", () => {
-    assertExists(hex);
+    assertExists(base64);
   });
 
   await test.step(".encode method exists", () => {
-    assertExists(hex.encode);
-    assertEquals(typeof hex.encode, "function");
+    assertExists(base64.encode);
+    assertEquals(typeof base64.encode, "function");
   });
 
   await test.step(".encode() operates as expected", () => {
-    assertEquals(hex.encode(decoded), encoded);
+    assertEquals(base64.encode(decoded), encoded);
   });
 
   await test.step(".decode method exists", () => {
-    assertExists(hex.decode);
-    assertEquals(typeof hex.decode, "function");
+    assertExists(base64.decode);
+    assertEquals(typeof base64.decode, "function");
   });
 
   await test.step(".decode() operates as expected", () => {
-    assertEquals(hex.decode(encoded), decoded);
+    assertEquals(base64.decode(encoded), decoded);
   });
 });

@@ -5,8 +5,8 @@
 /// <reference lib="dom" />
 /// <reference lib="dom.iterable" />
 
-import "../testing.ts";
-import "./yaml.ts";
+import "../../testing.ts";
+import "../../encoding/yaml.ts";
 
 Deno.test("YAML", async (test) => {
   await test.step("namespace exists in global scope", () => {
@@ -47,5 +47,4 @@ Deno.test("YAML", async (test) => {
   await test.step(".FAILSAFE_SCHEMA exists", () => {
     assertExists(YAML.FAILSAFE_SCHEMA);
   });
-
 });

@@ -5,9 +5,9 @@
 /// <reference lib="dom" />
 /// <reference lib="dom.iterable" />
 
-import "../testing.ts";
-import "./csv.ts";
+import "../../testing.ts";
+import "../../encoding/binary.ts";
 
-Deno.test("CSV exists in global scope", () => {
-  assertExists(CSV);
+Deno.test("binary exists in global scope", () => {
+  assertExists(binary);
 });

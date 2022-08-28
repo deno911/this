@@ -5,10 +5,11 @@
 /// <reference lib="dom" />
 /// <reference lib="dom.iterable" />
 
-import "../testing.ts";
-import "./front_matter.ts";
+import "../../testing.ts";
+import "../../encoding/front_matter.ts";
 
-const md2 = `# Article Title\n\nSome awesome content here fam\n\n---\n\nMIT © [Nicholas Berlette](https://github.com/nberlette). All rights reserved.`;
+const md2 =
+  `# Article Title\n\nSome awesome content here fam\n\n---\n\nMIT © [Nicholas Berlette](https://github.com/nberlette). All rights reserved.`;
 
 const md1 = `---
 title: "Article Title"
@@ -59,5 +60,4 @@ Deno.test("front_matter", async (test) => {
     assert(front_matter.test(md1));
     assertFalse(front_matter.test(md2));
   });
-
 });

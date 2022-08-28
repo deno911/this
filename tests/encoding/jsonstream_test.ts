@@ -5,8 +5,8 @@
 /// <reference lib="dom" />
 /// <reference lib="dom.iterable" />
 
-import "../testing.ts";
-import "./jsonstream.ts";
+import "../../testing.ts";
+import "../../encoding/jsonstream.ts";
 
 Deno.test("JSONStream", async (test) => {
   await test.step("namespace exists in global scope", () => {
@@ -27,5 +27,4 @@ Deno.test("JSONStream", async (test) => {
     assertExists(JSONStream.useConcat);
     assertEquals(typeof JSONStream.useConcat, "function");
   });
-
 });
