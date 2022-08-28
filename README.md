@@ -8,7 +8,7 @@ functions - just import the filename itself.
 ## encoding
 
 ```ts
-import "https://deno.land/x/this@0.0.1/encoding.ts";
+import "https://deno.land/x/this@0.153.0/encoding.ts";
 ```
 
 - **`base64`** - [base64.ts](https://deno.land/std/encoding/base64.ts)
@@ -31,7 +31,7 @@ Also creates globals for this third-party library:
 ## testing.ts
 
 ```ts
-import "https://deno.land/x/this@0.0.1/testing.ts";
+import "https://deno.land/x/this@0.153.0/testing.ts";
 ```
 
 - [std/testing/asserts.ts](https://deno.land/std/testing/asserts.ts)
@@ -51,7 +51,7 @@ Also creates globals for these third-party testing libraries:
 ### JSONC, JSON5, TOML, YAML
 
 ```ts
-import "https://deno.land/x/this@0.0.1/encoding.ts";
+import "https://deno.land/x/this@0.153.0/encoding.ts";
 
 const config = JSONC.parse(await Deno.readTextFile("./deno.jsonc"));
 
@@ -68,11 +68,11 @@ await Deno.writeTextFile("./deno.yml", YAML.stringify(config));
 ### Global Assertions
 
 ```ts
-import "https://deno.land/x/this@0.0.1/testing.ts";
+import "https://deno.land/x/this@0.153.0/testing.ts";
 
 Deno.test("URL Test", () => {
-  const url = new URL("./this@0.0.1/mod.ts", "https://deno.land/x/");
-  assertEquals(url.href, "https://deno.land/x/this@0.0.1/mod.ts");
+  const url = new URL("./this@0.153.0/mod.ts", "https://deno.land/x/");
+  assertEquals(url.href, "https://deno.land/x/this@0.153.0/mod.ts");
 });
 
 describe("Users Map", () => {
