@@ -2,7 +2,6 @@ import {
   ConcatenatedJSONParseStream,
   JSONParseStream,
   JSONStringifyStream,
-  type JSONValue as JSONValueT,
   type ParseStreamOptions,
   type StringifyStreamOptions,
 } from "../deps.ts";
@@ -11,13 +10,13 @@ const JSONStream = {
   Parse: JSONParseStream,
   Stringify: JSONStringifyStream,
   Concatenated: ConcatenatedJSONParseStream,
-  parse({
+  useParse({
     writableStrategy,
     readableStrategy,
   }: ParseStreamOptions = {}): JSONParseStream {
     return new JSONParseStream({ writableStrategy, readableStrategy });
   },
-  stringify({
+  useStringify({
     writableStrategy,
     readableStrategy,
     prefix,
@@ -30,7 +29,7 @@ const JSONStream = {
       suffix,
     });
   },
-  parseConcat({
+  useConcat({
     writableStrategy,
     readableStrategy,
   }: ParseStreamOptions = {}): ConcatenatedJSONParseStream {
@@ -41,30 +40,27 @@ const JSONStream = {
   },
 } as JSONStream;
 
-Object.assign(globalThis, { JSONStream });
-
 declare global {
-  namespace JSONStream {
-    type ParseOptions = ParseStreamOptions;
-    type StringifyOptions = StringifyStreamOptions;
-    type JSONValue = JSONValueT;
-  }
   interface JSONStream {
     Parse: typeof JSONParseStream;
     Stringify: typeof JSONStringifyStream;
     Concatenated: typeof ConcatenatedJSONParseStream;
-    parse(
+    useParse(
       { writableStrategy, readableStrategy }: ParseStreamOptions,
     ): JSONParseStream;
-    stringify({
+    useStringify({
       writableStrategy,
       readableStrategy,
       prefix,
       suffix,
     }: StringifyStreamOptions): JSONStringifyStream;
-    parseConcat(
+    useConcat(
       { writableStrategy, readableStrategy }: ParseStreamOptions,
     ): ConcatenatedJSONParseStream;
   }
-  const JSONStream: JSONStream;
+  namespace globalThis {
+    const JSONStream: JSONStream;
+  }
 }
+
+Object.assign(globalThis, { JSONStream });

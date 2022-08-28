@@ -1,9 +1,9 @@
-import { TOML } from "../deps.ts";
-
-Object.assign(globalThis, { TOML });
-
-type Toml = typeof TOML;
+import { TOML as $TOML } from "../deps.ts";
 
 declare global {
-  const TOML: Toml;
+  namespace globalThis {
+    const TOML: typeof $TOML;
+  }
 }
+
+Object.assign(globalThis, { TOML: $TOML });

@@ -1,9 +1,9 @@
-import { hex } from "../deps.ts";
-
-Object.assign(globalThis, { hex });
-
-type Hex = typeof hex;
+import { hex as $hex } from "../deps.ts";
 
 declare global {
-  const hex: Hex;
+  namespace globalThis {
+    const hex: typeof $hex;
+  }
 }
+
+Object.assign(globalThis, { hex: $hex });

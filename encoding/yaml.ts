@@ -1,9 +1,9 @@
-import { YAML } from "../deps.ts";
-
-Object.assign(globalThis, { YAML });
-
-type Yaml = typeof YAML;
+import { YAML as $YAML } from "../deps.ts";
 
 declare global {
-  const YAML: Yaml;
+  namespace globalThis {
+    const YAML: typeof $YAML;
+  }
 }
+
+Object.assign(globalThis, { YAML: $YAML });

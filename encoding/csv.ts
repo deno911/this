@@ -1,9 +1,7 @@
-import { CSV } from "../deps.ts";
+import { CSV as $CSV } from "../deps.ts";
 
-Object.assign(globalThis, { CSV });
-
-type Csv = typeof CSV;
+Object.assign(globalThis, { CSV: $CSV });
 
 declare global {
-  const CSV: Csv;
+  const CSV: typeof $CSV;
 }

@@ -1,9 +1,7 @@
-import { binary } from "../deps.ts";
+import { binary as $binary } from "../deps.ts";
 
-Object.assign(globalThis, { binary });
-
-type Binary = typeof binary;
+Object.assign(globalThis, { binary: $binary });
 
 declare global {
-  const binary: Binary;
+  const binary: typeof $binary;
 }

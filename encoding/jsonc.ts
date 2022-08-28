@@ -1,11 +1,12 @@
+// deno-lint-ignore-file no-var
 import { JSONC as $JSONC } from "../deps.ts";
 
-const JSONC: JSONC = {
+const JSONC = {
   parse(
     text: string,
-    reviver: JSONC.ParseOptions | JSONReviverFn,
-  ): JSONC.JSONValue {
-    let options: JSONC.ParseOptions;
+    reviver: $JSONC.ParseOptions | JSONReviverFn,
+  ): JSONValue {
+    let options: $JSONC.ParseOptions;
     if (typeof reviver === "function") {
       options = { allowTrailingComma: true };
     } else if ({}.toString.call(reviver) === "[object Object]") {
@@ -18,7 +19,7 @@ const JSONC: JSONC = {
       try {
         return JSON.parse(text, reviver as JSONReviverFn);
       } catch {
-        // ignore
+        return null;
       }
     }
   },
@@ -42,41 +43,33 @@ const JSONC: JSONC = {
       return JSON.stringify(value, replacer, space);
     } catch {
       // swallow the error, return empty string
-      return "";
+      return null;
     }
   },
-} as JSONC;
-
-Object.assign(globalThis, { JSONC });
+};
 
 type JSONReplacerFn = (this: any, key: string, value: any) => any;
 type JSONReviverFn = (this: any, key: string, value: any) => any;
 
 declare global {
-  namespace JSONC {
-    /**
-     * Valid types as a result of JSONC parsing
-     */
-    export type JSONValue =
-      | { [key: string]: JSONValue }
-      | JSONValue[]
-      | string
-      | number
-      | boolean
-      | null;
-    export interface ParseOptions {
-      /**
-       * Allow trailing commas at the end of arrays and objects.
-       * @default true
-       */
-      allowTrailingComma?: boolean;
-    }
-  }
+  type JSONValue =
+    | { [key: string]: JSONValue }
+    | JSONValue[]
+    | string
+    | number
+    | boolean
+    | null;
   interface JSONC {
     parse(
       text: string,
-      { allowTrailingComma }?: JSONC.ParseOptions,
-    ): JSONC.JSONValue;
+      { allowTrailingComma }?: {
+        /**
+         * Allow trailing commas at the end of arrays and objects.
+         * @default true
+         */
+        allowTrailingComma: boolean;
+      },
+    ): JSONValue;
     stringify(
       value: any,
       replacer?: (this: any, key: string, value: any) => any,
@@ -88,5 +81,9 @@ declare global {
       space?: string | number,
     ): string;
   }
-  const JSONC: JSONC;
+  namespace globalThis {
+    const JSONC: JSONC;
+  }
 }
+
+Object.assign(globalThis, { JSONC });
