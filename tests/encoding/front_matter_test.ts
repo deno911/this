@@ -1,63 +1,39 @@
 /// <reference no-default-lib="true" />
-/// <reference lib="esnext" />
 /// <reference lib="deno.ns" />
 /// <reference lib="deno.window" />
-/// <reference lib="dom" />
-/// <reference lib="dom.iterable" />
 
 import "../../testing.ts";
 import "../../encoding/front_matter.ts";
 
-const md2 =
-  `# Article Title\n\nSome awesome content here fam\n\n---\n\nMIT © [Nicholas Berlette](https://github.com/nberlette). All rights reserved.`;
+import {
+  type Article,
+  markdown1,
+  markdown2,
+} from "../fixtures/front_matter.ts";
 
-const md1 = `---
-title: "Article Title"
-author:
-  name: Nicholas Berlette
-  email: nick@berlette.com
-  url: https://github.com/nberlette
-date: 2022-08-28T12:00:00-0700Z
----
-
-${md2}`;
-
-/**
- * Describes the shape of our expected front matter data.
- */
-interface Article {
-  title: string;
-  author: {
-    name: string;
-    email: string;
-    url: string;
-  };
-  date: string;
-}
-
-Deno.test("front_matter", async (test) => {
-  await test.step("namespace exists in global scope", () => {
-    assertExists(front_matter);
+describe("FrontMatter", () => {
+  it("should exist in the global scope", () => {
+    assertExists(FrontMatter);
   });
 
-  await test.step(".extract method exists", () => {
-    assertExists(front_matter.extract);
-    assertEquals(typeof front_matter.extract, "function");
+  it("should have an extract method", () => {
+    assertExists(FrontMatter.extract);
+    assertEquals(typeof FrontMatter.extract, "function");
   });
 
-  await test.step(".extract() operates as expected", () => {
-    const data = front_matter.extract<Article>(md1);
+  it("should extract frontmatter data correctly", () => {
+    const data = FrontMatter.extract<Article>(markdown1);
     assertEquals(data.attrs.title, "Article Title");
     assertEquals(data.attrs.author.name, "Nicholas Berlette");
   });
 
-  await test.step(".test method exists", () => {
-    assertExists(front_matter.test);
-    assertEquals(typeof front_matter.test, "function");
+  it("should have a test method", () => {
+    assertExists(FrontMatter.test);
+    assertEquals(typeof FrontMatter.test, "function");
   });
 
-  await test.step(".test() operates as expected", () => {
-    assert(front_matter.test(md1));
-    assertFalse(front_matter.test(md2));
+  it("should test data as expected", () => {
+    assert(FrontMatter.test(markdown1));
+    assertFalse(FrontMatter.test(markdown2));
   });
 });
