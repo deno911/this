@@ -1,7 +1,5 @@
 import { asserts } from "../deps.ts";
 
-Object.assign(globalThis, asserts);
-
 declare global {
   const assert: typeof asserts.assert;
   const assertAlmostEquals: typeof asserts.assertAlmostEquals;
@@ -25,3 +23,5 @@ declare global {
   const unimplemented: typeof asserts.unimplemented;
   const unreachable: typeof asserts.unreachable;
 }
+
+Object.assign(globalThis, asserts);

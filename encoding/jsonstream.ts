@@ -1,3 +1,7 @@
+/// <reference no-default-lib="true" />
+/// <reference lib="deno.ns" />
+/// <reference lib="deno.window" />
+
 import {
   ConcatenatedJSONParseStream,
   JSONParseStream,
@@ -6,7 +10,25 @@ import {
   type StringifyStreamOptions,
 } from "../deps.ts";
 
-const JSONStream = {
+type JSONStream = {
+  Parse: typeof JSONParseStream;
+  Stringify: typeof JSONStringifyStream;
+  Concatenated: typeof ConcatenatedJSONParseStream;
+  useParse(
+    { writableStrategy, readableStrategy }: ParseStreamOptions,
+  ): JSONParseStream;
+  useStringify({
+    writableStrategy,
+    readableStrategy,
+    prefix,
+    suffix,
+  }: StringifyStreamOptions): JSONStringifyStream;
+  useConcat(
+    { writableStrategy, readableStrategy }: ParseStreamOptions,
+  ): ConcatenatedJSONParseStream;
+};
+
+const JSONStream: JSONStream = {
   Parse: JSONParseStream,
   Stringify: JSONStringifyStream,
   Concatenated: ConcatenatedJSONParseStream,
@@ -38,29 +60,17 @@ const JSONStream = {
       readableStrategy,
     });
   },
-} as JSONStream;
+};
 
 declare global {
-  interface JSONStream {
-    Parse: typeof JSONParseStream;
-    Stringify: typeof JSONStringifyStream;
-    Concatenated: typeof ConcatenatedJSONParseStream;
-    useParse(
-      { writableStrategy, readableStrategy }: ParseStreamOptions,
-    ): JSONParseStream;
-    useStringify({
-      writableStrategy,
-      readableStrategy,
-      prefix,
-      suffix,
-    }: StringifyStreamOptions): JSONStringifyStream;
-    useConcat(
-      { writableStrategy, readableStrategy }: ParseStreamOptions,
-    ): ConcatenatedJSONParseStream;
-  }
-  namespace globalThis {
-    const JSONStream: JSONStream;
-  }
+  const JSONStream: JSONStream;
 }
 
-Object.assign(globalThis, { JSONStream });
+Object.assign(globalThis, {
+  JSONStream: Object.defineProperty(JSONStream, Symbol.toStringTag, {
+    value: "JSONStream",
+    writable: false,
+    enumerable: false,
+    configurable: false,
+  }),
+});

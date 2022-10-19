@@ -1,7 +1,21 @@
-import { CSV as $CSV } from "../deps.ts";
+/// <reference no-default-lib="true" />
+/// <reference lib="deno.ns" />
+/// <reference lib="deno.window" />
 
-Object.assign(globalThis, { CSV: $CSV });
+import { CSV } from "../deps.ts";
+import type { Merge } from "../_internal.ts";
+
+type CSV = Merge<typeof CSV>;
 
 declare global {
-  const CSV: typeof $CSV;
+  const CSV: CSV;
 }
+
+Object.assign(globalThis, {
+  CSV: Object.defineProperty<CSV>({ ...CSV }, Symbol.toStringTag, {
+    value: "CSV",
+    writable: false,
+    enumerable: false,
+    configurable: false,
+  }),
+});

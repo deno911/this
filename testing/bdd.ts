@@ -1,7 +1,5 @@
 import { bdd } from "../deps.ts";
 
-Object.assign(globalThis, bdd);
-
 declare global {
   const afterAll: typeof bdd.afterAll;
   const afterEach: typeof bdd.afterEach;
@@ -10,3 +8,5 @@ declare global {
   const describe: typeof bdd.describe;
   const it: typeof bdd.it;
 }
+
+Object.assign(globalThis, bdd);

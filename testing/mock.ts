@@ -1,6 +1,10 @@
 import { mock } from "../deps.ts";
 
-Object.assign(globalThis, mock);
+const {
+  resolvesNext: mockResolvesNext,
+  restore: mockRestore,
+  ...$mock
+} = mock;
 
 declare global {
   const MockError: typeof mock.MockError;
@@ -11,16 +15,19 @@ declare global {
   const assertSpyCalls: typeof mock.assertSpyCalls;
   const mockSession: typeof mock.mockSession;
   const mockSessionAsync: typeof mock.mockSessionAsync;
-  const resolvesNext: typeof mock.resolvesNext;
-  const restore: typeof mock.restore;
+  const mockResolvesNext: typeof mock.resolvesNext;
+  const mockRestore: typeof mock.restore;
   const returnsArg: typeof mock.returnsArg;
   const returnsArgs: typeof mock.returnsArgs;
   const returnsNext: typeof mock.returnsNext;
   const returnsThis: typeof mock.returnsThis;
   const spy: typeof mock.spy;
   const stub: typeof mock.stub;
-  type ExpectedSpyCall = mock.ExpectedSpyCall;
-  type Spy = mock.Spy;
-  type SpyCall = mock.SpyCall;
-  type Stub = mock.Stub;
+
+  interface Spy extends mock.Spy {}
+  interface SpyCall extends mock.SpyCall {}
+  interface ExpectedSpyCall extends mock.ExpectedSpyCall {}
+  interface Stub extends mock.Stub {}
 }
+
+Object.assign(globalThis, $mock, { mockResolvesNext, mockRestore });

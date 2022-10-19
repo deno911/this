@@ -2,7 +2,7 @@
 /// <reference lib="esnext" />
 /// <reference lib="deno.window" />
 
-import "../../testing.ts";
+import "../../testing/all.ts";
 
 Deno.test("URL Test", () => {
   const url = new URL("./this@0.0.1/mod.ts", "https://deno.land/x/");
