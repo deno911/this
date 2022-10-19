@@ -1,8 +1,12 @@
 export { is } from "https://deno.land/x/dis@0.0.1/mod.ts";
 
 export {
+  filterEntries,
+  filterKeys,
   isKeyOf,
   isObject,
+  mapEntries,
+  mapKeys,
   memoize,
   memoized,
   objectPick,

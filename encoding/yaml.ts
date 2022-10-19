@@ -39,11 +39,3 @@ Object.assign(globalThis, {
     },
   ) as YAML,
 });
-//   YAML: Object.defineProperties(Object.create(null), {
-//     ...mapEntries(filterKeys({ ...YAML }, k => /Test|SCHEMA$/.test(k)),
-//       ([key, value], _idx) => {
-//         const d = Reflect.getOwnPropertyDescriptor(YAML, key);
-//         return { value, enumerable, writable, configurable }
-//       })
-//     })
-// });

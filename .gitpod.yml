@@ -2,10 +2,11 @@ image: nberlette/gitpod-enhanced
 
 tasks:
 - init: |
-    export DENO_INSTALL_ROOT="$HOME/.deno/bin"
-    export DENO_DIR="$HOME/.deno/cache"
+    export DENO_INSTALL="$HOME/.deno"
+    export DENO_INSTALL_ROOT="$DENO_INSTALL/bin"
+    export DENO_DIR="$DENO_INSTALL/cache"
     export PATH="$DENO_INSTALL_ROOT:$PATH"
-    curl -fsSL https://deno.land/x/install/install.sh | sh -
+    curl -fsSL https://deno.land/install.sh | sh -
 
 vscode:
   extensions:
@@ -14,8 +15,6 @@ vscode:
     - "vsls-contrib.gistfs"
     - "sdras.night-owl"
     - "redhat.vscode-yaml"
-    - "antfu.iconify"
-    - "antfu.unocss"
     - "antfu.browse-lite"
     - "bierner.markdown-preview-github-styles"
 

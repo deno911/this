@@ -11,7 +11,9 @@
       "esnext"
     ],
     "strict": true,
-    "strictNullChecks": false
+    "types": [
+      "./mod.d.ts"
+    ]
   },
   "lint": {
     "rules": {
@@ -19,32 +21,27 @@
         "no-explicit-any",
         "ban-types",
         "ban-ts-comment",
-        "no-var"
+        "no-empty-interface"
       ]
     },
     "files": {
       "exclude": [
-        ".devcontainer",
-        ".vscode",
-        ".git*"
+        ".{devcontainer,vscode,git,github}"
       ]
     }
   },
   "fmt": {
     "files": {
       "exclude": [
-        ".devcontainer",
-        ".vscode",
-        ".git*"
+        ".{devcontainer,vscode,git,github}",
+        "./{README.md,LICENSE}"
       ]
     }
   },
   "test": {
     "files": {
       "exclude": [
-        ".devcontainer",
-        ".vscode",
-        ".git*"
+        ".{devcontainer,vscode,git,github}"
       ]
     }
   }
