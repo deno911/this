@@ -17,6 +17,8 @@ vscode:
     - "redhat.vscode-yaml"
     - "antfu.browse-lite"
     - "bierner.markdown-preview-github-styles"
+    - "gitpod.gitpod-desktop"
+    - "gitpod.gitpod-remote-ssh"
 
 github:
   prebuilds:
@@ -27,4 +29,3 @@ github:
     addLabel: true
     addCheck: true
     addBadge: true
-

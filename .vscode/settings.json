@@ -4,23 +4,25 @@
   "deno.codeLens.test": true,
   "deno.codeLens.testArgs": [
     "--allow-all",
-    "--no-check"
+    "--no-check",
+    "--unstable"
   ],
   "deno.lint": true,
-  "[typescript][typescriptreact][javascript][javascriptreact][json][jsonc]": {
-    "editor.defaultFormatter": "denoland.vscode-deno",
-    "editor.formatOnSave": true,
-    "editor.formatOnSaveMode": "modificationsIfAvailable",
-    "editor.formatOnPaste": false,
-    "editor.formatOnType": false,
-    "editor.autoClosingDelete": "always",
-    "editor.autoClosingOvertype": "always",
-    "editor.autoClosingQuotes": "languageDefined",
-    "editor.tabSize": 2,
-    "editor.stickyTabStops": true,
-    "editor.linkedEditing": true
-  },
-  "[json][jsonc][markdown][yaml]": {
-    "editor.formatOnType": true
-  }
+  "editor.defaultFormatter": "denoland.vscode-deno",
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": true,
+  "editor.autoClosingDelete": "always",
+  "editor.autoClosingOvertype": "always",
+  "editor.autoClosingQuotes": "languageDefined",
+  "editor.tabSize": 2,
+  "editor.stickyTabStops": true,
+  "editor.linkedEditing": true,
+  "editor.minimap.enabled": false,
+  "gitlens.showWelcomeOnInstall": false,
+  "gitpod.openInStable.neverPrompt": true,
+  "git.allowForcePush": true,
+  "git.enableCommitSigning": true,
+  "git.branchRandomName.enable": true,
 }
