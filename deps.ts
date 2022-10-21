@@ -28,11 +28,11 @@ export * as snapshot from "https://deno.land/std@0.160.0/testing/snapshot.ts";
 /* ./testing/mock.ts */
 export * as mock from "https://deno.land/std@0.160.0/testing/mock.ts";
 
-/* third-party testing tools */
+/* ./testing/chai.ts - chai@4.3.4 */
 export { default as chai } from "https://cdn.skypack.dev/chai@4.3.4?dts";
-export { default as fc } from "https://cdn.skypack.dev/fast-check@v3.1.1?dts";
 
-/* encoding */
+/* ./testing/fc.ts - fast-check@v3.2.0 */
+export { default as fc } from "https://cdn.skypack.dev/fast-check@v3.2.0?dts";
 
 /* ./encoding/ascii.ts */
 export * as ascii85 from "https://deno.land/std@0.160.0/encoding/ascii85.ts";
@@ -64,15 +64,16 @@ export * as FrontMatter from "https://deno.land/std@0.160.0/encoding/front_matte
 /* ./encoding/jsonc.ts */
 export * as JSONC from "https://deno.land/std@0.160.0/encoding/jsonc.ts";
 
-/* ./encoding/json5.ts */
+/* ./encoding/json5.ts - json5@1.0.0 */
 export { default as JSON5 } from "https://deno.land/x/json5@v1.0.0/mod.ts";
 
 /* ./encoding/jsonstream.ts */
 export {
-  ConcatenatedJsonParseStream as ConcatenatedJSONParseStream,
-  JsonParseStream as JSONParseStream,
-  JsonStringifyStream as JSONStringifyStream,
+  ConcatenatedJsonParseStream,
+  JsonParseStream,
+  JsonStringifyStream,
   type JsonValue as JSONValue,
+  type JsonValue,
   type ParseStreamOptions,
   type StringifyStreamOptions,
 } from "https://deno.land/std@0.160.0/encoding/json/stream.ts";

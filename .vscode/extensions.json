@@ -2,7 +2,7 @@
   "recommendations": [
     "denoland.vscode-deno",
     "editorconfig.editorconfig",
-    "GitHub.codespaces",
+    "github.codespaces",
     "gitpod.gitpod-desktop",
     "gitpod.gitpod-remote-ssh",
     "vsls-contrib.gistfs",
@@ -10,6 +10,7 @@
     "redhat.vscode-yaml",
     "antfu.iconify",
     "antfu.browse-lite",
-    "bierner.markdown-preview-github-styles"
+    "bierner.markdown-preview-github-styles",
+    "yzhang.markdown-all-in-one"
   ]
 }

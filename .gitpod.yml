@@ -10,15 +10,16 @@ tasks:
 
 vscode:
   extensions:
-    - "denoland.vscode-deno"
-    - "editorconfig.editorconfig"
-    - "vsls-contrib.gistfs"
-    - "sdras.night-owl"
-    - "redhat.vscode-yaml"
-    - "antfu.browse-lite"
-    - "bierner.markdown-preview-github-styles"
-    - "gitpod.gitpod-desktop"
-    - "gitpod.gitpod-remote-ssh"
+    - denoland.vscode-deno
+    - editorconfig.editorconfig
+    - vsls-contrib.gistfs
+    - sdras.night-owl
+    - redhat.vscode-yaml
+    - antfu.browse-lite
+    - bierner.markdown-preview-github-styles
+    - gitpod.gitpod-desktop
+    - gitpod.gitpod-remote-ssh
+    - yzhang.markdown-all-in-one
 
 github:
   prebuilds:
